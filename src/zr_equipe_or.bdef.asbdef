@@ -1,0 +1,58 @@
+managed implementation in class ZBP_R_EQUIPE_OR unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_EQUIPE_OR alias ZrEquipeOr
+persistent table ZTB_EQUIPE_OR
+extensible
+draft table ZTB_EQUIPE_OR_D
+etag master LocalModificadoEm
+lock master total etag ModificadoEm
+authorization master( global )
+early numbering //Remove o popup que solicita as chaves no create
+{
+
+
+
+  field ( readonly )
+   ID,
+   CriadoPor,
+   ModificadoPor,
+   CriadoEm,
+   ModificadoEm,
+   LocalModificadoEm;
+
+  create;
+  update;
+  delete;
+
+  validation valida_pais on save { create; update; field Pais; }
+
+  determination determina_cidade on save { create; update; field Cidade; }
+
+  action add_titulo result[1] $self;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare
+  {
+    validation valida_pais;
+  }
+
+  mapping for ZTB_EQUIPE_OR corresponding extensible
+  {
+    ID = ID;
+    Nome = NOME;
+    Pais = PAIS;
+    Cidade = CIDADE;
+    QtdTitulos = QTD_TITULOS;
+    CriadoPor = CRIADO_POR;
+    ModificadoPor = MODIFICADO_POR;
+    CriadoEm = CRIADO_EM;
+    ModificadoEm = MODIFICADO_EM;
+    LocalModificadoEm = LOCAL_MODIFICADO_EM;
+  }
+
+}

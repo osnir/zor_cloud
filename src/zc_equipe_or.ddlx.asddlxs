@@ -1,0 +1,128 @@
+@Metadata.layer: #CORE
+@UI: { 
+    headerInfo: { 
+        typeName: 'Equipe',
+        typeNamePlural: 'Equipes'      
+    }
+}
+annotate view ZC_EQUIPE_OR with
+{ 
+  @UI.facet: [ {
+    label: 'Dados da Equipe', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  },
+  { 
+   id: '_Jogador',
+   label: 'Jogadores',
+   position: 20,
+   type: #LINEITEM_REFERENCE,
+   targetElement: '_Jogador' 
+  }]
+ 
+  @EndUserText.label: 'ID'
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'ID'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'ID'
+  },
+  { 
+    type: #FOR_ACTION,
+    dataAction: 'add_titulo',
+    label : 'Adicionar Título',
+    invocationGrouping: #CHANGE_SET
+  }]
+  ID; 
+  
+  @EndUserText.label: 'Nome'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'Nome'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'Nome'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  Nome;
+  
+  @EndUserText.label: 'Pais'
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'País'
+  } ]
+  @UI.lineItem: [ {
+    position: 30 , 
+    label: 'País'
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  Pais;
+  
+  @EndUserText.label: 'Cidade'
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'Cidade'
+  } ]
+  @UI.lineItem: [ {
+    position: 40 , 
+    label: 'Cidade'
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  Cidade;
+  
+  @EndUserText.label: 'QtdTitulos'
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'Qtd.Títulos'
+  } ]
+  @UI.lineItem: [ {
+    position: 50 , 
+    label: 'Qtd.Títulos'
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  QtdTitulos;
+  
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  @UI.lineItem: [ {
+    position: 60 
+  } ]
+  CriadoPor;
+  
+  @UI.lineItem: [ {
+    position: 70 
+  } ]
+  ModificadoPor;
+  
+  @UI.identification: [ {
+    position: 80 
+  } ]
+  @UI.lineItem: [ {
+    position: 80 
+  } ]
+  CriadoEm;
+  
+  @UI.lineItem: [ {
+    position: 90 
+  } ]
+  ModificadoEm;
+  
+  @UI.lineItem: [ {
+    position: 100 
+  } ]
+  LocalModificadoEm;
+};

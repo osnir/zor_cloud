@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZR_JOGADOR_OR'
+@MappingRole: true
+define role ZR_JOGADOR_OR {
+  grant select on ZR_JOGADOR_OR
+  where TRUE;
+}

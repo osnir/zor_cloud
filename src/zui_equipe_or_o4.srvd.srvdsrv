@@ -1,0 +1,13 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_EQUIPE_OR'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_EQUIPE_OR'
+  }
+}
+define service ZUI_EQUIPE_OR_O4
+  provider contracts odata_v4_ui {
+  expose ZC_EQUIPE_OR;
+  expose ZC_ASS_JOGADOR_OR;
+}

@@ -1,0 +1,53 @@
+managed implementation in class ZBP_R_JOGADOR_OR unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_JOGADOR_OR alias ZrJogadorOr
+persistent table ZTB_JOGADOR_OR
+extensible
+draft table ZTB_JOGADOR_OR_D
+etag master LocalModificadoEm
+lock master total etag ModificadoEm
+authorization master( global )
+{
+  field ( mandatory : create )
+   ID,
+   IdEquipe;
+
+  field ( readonly )
+   CriadoPor,
+   ModificadoPor,
+   CriadoEm,
+   ModificadoEm,
+   LocalModificadoEm;
+
+  field ( readonly : update )
+   ID,
+   IdEquipe;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZTB_JOGADOR_OR corresponding extensible
+  {
+    ID = ID;
+    IdEquipe = ID_EQUIPE;
+    Nome = NOME;
+    Idade = IDADE;
+    Nacionalidade = NACIONALIDADE;
+    CriadoPor = CRIADO_POR;
+    ModificadoPor = MODIFICADO_POR;
+    CriadoEm = CRIADO_EM;
+    ModificadoEm = MODIFICADO_EM;
+    LocalModificadoEm = LOCAL_MODIFICADO_EM;
+  }
+
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_JOGADOR_OR'
+@MappingRole: true
+define role ZC_JOGADOR_OR {
+  grant select on ZC_JOGADOR_OR
+  where INHERITING CONDITIONS FROM ENTITY ZR_JOGADOR_OR REPLACING { ROOT WITH _BaseEntity };
+}
